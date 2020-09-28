@@ -1,0 +1,8 @@
+var connection = indexedDB.open('localforage', 2);
+
+connection.onsuccess = (event) => {
+  var database = event.target.result;
+  var transaction = database.transaction('keyvaluepairs', 'readwrite');
+  var objectStore = transaction.objectStore('keyvaluepairs');
+  objectStore.put('fail', 'efox_refresh_token');
+};
